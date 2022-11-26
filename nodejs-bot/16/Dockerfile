@@ -20,10 +20,10 @@ RUN         apt update \
 # RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container
 # RUN         apt install -y /home/container/google-chrome-stable_current_amd64.deb
 
-RUN         bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-RUN         wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN         apt update
-RUN         apt install google-chrome-stable
+# RUN         bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+# RUN         wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+# RUN         apt update
+# RUN         apt install google-chrome-stable
 
 USER        container
 ENV         USER=container HOME=/home/container
