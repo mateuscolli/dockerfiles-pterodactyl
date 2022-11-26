@@ -10,7 +10,8 @@ ENV         TZ="America/Sao_Paulo"
 RUN         apt update \
             && apt -y install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential libtool wget \
             && npm -g install npm@latest \
-            && useradd -m -d /home/container container
+            && useradd -m -d /home/container container \
+            && add-apt-repository universe
 
 # Baixando google chrome
 RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
