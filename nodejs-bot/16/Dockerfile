@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH node:16-bullseye-slim
+FROM        --platform=$TARGETOS/$TARGETARCH node:16
 
 LABEL       author="Mateus Colli" maintainer="mateusambrosino@gmail.com"
 
