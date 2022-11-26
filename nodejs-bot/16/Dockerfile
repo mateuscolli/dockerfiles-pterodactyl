@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH node:16
+FROM        --platform=$TARGETOS/$TARGETARCH node:16-bullseye-slim
 
 LABEL       author="Mateus Colli" maintainer="mateusambrosino@gmail.com"
 
@@ -14,7 +14,7 @@ RUN         apt update \
 
 # Baixando google chrome
 RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN         apt-get install ./google-chrome-stable_current_amd64.deb
+RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
 # RUN         dpkg -i google-chrome-stable_current_amd64.deb
 
 # RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container
