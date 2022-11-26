@@ -17,6 +17,6 @@
 	},
 	"homepage": "https://github.com/mateuscolli/dockerfiles-pterodactyl#readme",
 	"publishConfig": {
-		"@mateuscolli:registry": "https://npm.pkg.github.com"
+		"@mateuscolli:registry": "ghcr.io"
 	}
 }
