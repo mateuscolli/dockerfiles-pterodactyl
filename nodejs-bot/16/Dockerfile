@@ -17,10 +17,10 @@ ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 # Baixando google chrome
-RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container/chromeBin
+RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container
 
 # Instalando google chrome
-RUN         apt install -y /home/container/chromeBin/google-chrome-stable_current_amd64.deb
+RUN         apt install -y /home/container/google-chrome-stable_current_amd64.deb
 
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/bash", "/entrypoint.sh" ]
