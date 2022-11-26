@@ -17,8 +17,12 @@ ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 # Baixando google chrome
-RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN         apt-get install ./google-chrome-stable_current_amd64.deb
+# RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# RUN         apt-get install ./google-chrome-stable_current_amd64.deb
+
+RUN         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \ 
+                && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+RUN         apt-get update && apt-get -y install google-chrome-stable
 
 # RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container
 # RUN         apt install -y /home/container/google-chrome-stable_current_amd64.deb
