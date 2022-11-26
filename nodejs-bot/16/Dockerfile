@@ -13,12 +13,17 @@ RUN         apt update \
             && useradd -m -d /home/container container
 
 # Baixando google chrome
-RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
+# RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
 # RUN         dpkg -i google-chrome-stable_current_amd64.deb
 
 # RUN         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /home/container
 # RUN         apt install -y /home/container/google-chrome-stable_current_amd64.deb
+
+RUN         sudo bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+RUN         sudo wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+RUN         apt update
+RUN         sudo apt install google-chrome-stable
 
 USER        container
 ENV         USER=container HOME=/home/container
