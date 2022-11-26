@@ -14,8 +14,8 @@ RUN         apt update \
 
 # Baixando google chrome
 RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
-# RUN         dpkg -i google-chrome-stable_current_amd64.deb
+# RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
+RUN         dpkg -i google-chrome-stable_current_amd64.deb
 
 USER        container
 ENV         USER=container HOME=/home/container
