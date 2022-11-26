@@ -8,7 +8,7 @@ ENV         PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV         TZ="America/Sao_Paulo"
 
 RUN         apt update \
-            && apt -y install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential libtool \
+            && apt -y install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential libtool wget \
             && npm -g install npm@latest \
             && useradd -m -d /home/container container
 
