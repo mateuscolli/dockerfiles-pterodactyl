@@ -11,18 +11,15 @@ RUN         apt update \
             && apt -y install ffmpeg iproute2 git sqlite3  libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential libtool wget xvfb \
             && npm -g install npm@latest \
             && useradd -m -d /home/container container
+            
+RUN         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+            && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+            && apt-get update -qqy \
+            && apt-get -qqy install
 
 # Baixando google chrome
 # RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # RUN         apt-get install -y ./google-chrome-stable_current_amd64.deb
-
-# Set up the Chrome PPA
-RUN         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN         echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-
-# Update the package list and install chrome
-RUN         apt-get update -y
-RUN         apt-get install -y google-chrome-stable
 
 USER        container
 ENV         USER=container HOME=/home/container
