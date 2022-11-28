@@ -12,17 +12,11 @@ ENV         TZ="America/Sao_Paulo"
 #             && npm -g install npm@latest \
 #             && useradd -m -d /home/container container
             
-# RUN         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-#             && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-#             && apt-get update -qqy \
-#             && apt-get -qqy install
-
-RUN         apt-get update && \
-            apt-get install -y gnupg wget curl unzip --no-install-recommends && \
-            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-            echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
-            apt-get update -y && \
-            apt-get install -y google-chrome-stable
+RUN         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+            && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+            && apt-get update -qqy \
+            && apt-get -qqy install \
+            && apt-get install -y google-chrome-stable
 
 # Baixando google chrome
 # RUN         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
