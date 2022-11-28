@@ -34,7 +34,7 @@ jobs:
         with:
           context: ./nodejs-bot
           file: ./nodejs-bot/${{ matrix.tag }}/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ghcr.io/mateuscolli/yolks:nodejs-bot_${{ matrix.tag }}
